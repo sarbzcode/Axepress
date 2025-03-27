@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Welcome to AXEPRESS, your one-stop destination for campus events and information.">
+  <meta name="keywords" content="axepress, campus, events, noticeboard, information">
+  <link rel="icon" href="favicon.png" type="image/png" sizes="20x20">
+  <title>AXEPRESS - Home</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body style="background-color: #0dcaf0;">
+    <div class="container-xxl px-3 py-3">
+        <div id="navbar"></div>
+        <main>
+            <div class="main">
+                <div id="null"></div>
+                <section class="container marzx py-3">
+                    <div class="row">
+                        <div class="col-md-3 mb-4" id="quickLinks">
+                            <h5>Quick Links</h5>
+                            <ul class="list-group" >
+                                <li class="list-group-item">
+                                    <a href="calendar.html" class="btn btn-outline-info">📅 My Calendar</a></li>
+                                <li class="list-group-item"><a href="announcements.html" class="btn btn-outline-info">📢 Announcements</a></li>
+                                <li class="list-group-item" class="btn btn-outline-info"><a href="submit-event.html" class="btn btn-outline-info">📥 Submit an Event</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-9 marzx">
+                            <br>
+                            <section class="container mt-5">
+                                <h2 class="text-dark mb-4">📥 Submit a New Event</h2>
+                                <form id="eventForm" class="bg-light p-4 rounded shadow-sm">
+                                  <div class="mb-3">
+                                    <label for="eventTitle" class="form-label">Event Title</label>
+                                    <input type="text" class="form-control" id="eventTitle" required>
+                                  </div>
+                                  <div class="mb-3">
+                                    <label for="eventDescription" class="form-label">Description</label>
+                                    <textarea class="form-control" id="eventDescription" rows="4" required></textarea>
+                                  </div>
+                                  <div class="mb-3">
+                                    <label for="eventDate" class="form-label">Event Date</label>
+                                    <input type="date" class="form-control" id="eventDate" required>
+                                  </div>
+                                  <div class="mb-3">
+                                    <label for="eventLink" class="form-label">More Info / Link (optional)</label>
+                                    <input type="url" class="form-control" id="eventLink">
+                                  </div>
+                                  <button type="submit" class="btn btn-info">Submit Event</button>
+                                </form>
+                              
+                                <div id="confirmationMessage" class="alert alert-success mt-4 d-none" role="alert">
+                                  ✅ Your event has been submitted!
+                                </div>
+                              </section>
+                              
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+        <div id="footer"></div>
+    </div>
+    
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<style>
+    .welcome {
+    background-image: url('welcome-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.4;
+    overflow: hidden;
+    position: relative;
+}
+
+.welcome .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Adjust the opacity */
+    z-index: 0;
+}
+
+.welcome .welcome-content {
+    position: relative;
+    z-index: 1;
+}
+
+</style>
+<section class="welcome text-center bg-light p-5 position-relative">
+    <div class="overlay"></div>
+    <div class="welcome-content position-relative">
+      <h1 class="text-light">Welcome to AXEPRESS 🎉</h1>
+      <p class="lead text-light">Your go-to campus noticeboard and event hub.</p>
+      <a href="events.html" class="btn btn-info">Browse Events</a>
+    </div>
+</section>
+  
