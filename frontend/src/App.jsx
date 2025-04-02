@@ -21,6 +21,10 @@ function App() {
       <Router>
         <div>
           <nav>
+            <div className="logo-container">
+              <img src="/src/assets/favicon.png" alt="Axepress Logo" className="nav-logo" />
+              <span className='logo-text'>Axepress</span>
+            </div>
             <Link className="home" to="/">Home</Link>
             <Link className="notices" to="/notices">Notices</Link>
             <Link className="events" to="/events">Events</Link>

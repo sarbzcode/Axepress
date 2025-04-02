@@ -27,7 +27,7 @@ const Home = () => {
     }, []);
     return (
         <div className='home-container'>
-            <h2>Welcome to AxeConnect!</h2>
+            <h2>Welcome to Axepress!</h2>
             <p>Find the latest updates and events happening on campus.</p>
             {loading ? (
                 <p>Loading...</p>
