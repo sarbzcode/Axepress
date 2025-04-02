@@ -1,0 +1,105 @@
+/* Container for the entire form */
+.create-notice-container {
+    max-width: 800px; /* Increased width for more space */
+    margin: 0 auto;
+    padding: 30px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Add spacing between form elements */
+  }
+  
+  /* Form Heading */
+  .create-notice-container h2 {
+    text-align: center;
+    font-size: 28px;
+    color: #34495e;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+  
+  /* Form elements */
+  .create-notice-container div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Add spacing between label and input */
+  }
+  
+  /* Label styling */
+  .create-notice-container label {
+    font-weight: bold;
+    color: #2c3e50;
+  }
+  
+  /* Input fields */
+  .create-notice-container input,
+  .create-notice-container textarea,
+  .create-notice-container select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    color: #2c3e50;
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
+  }
+  
+  .create-notice-container input:focus,
+  .create-notice-container textarea:focus,
+  .create-notice-container select:focus {
+    outline: none;
+    border-color: #007bff;
+  }
+  
+  /* Textarea */
+  .create-notice-container textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+  
+  /* Button Styling */
+  .create-notice-container button {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    width: 100%;
+  }
+  
+  .create-notice-container button:hover {
+    background-color: #0056b3;
+  }
+  
+  .create-notice-container button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  /* Category Section Styling */
+  .create-notice-container .categories {
+    width: 100%; /* Ensure full width for the categories section */
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+  }
+  
+  .create-notice-container .categories select {
+    flex: 1; /* Allow select elements to stretch */
+  }
+  
+  /* Optional error message styling */
+  .create-notice-container .error {
+    color: #e74c3c;
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: center;
+  }
+  

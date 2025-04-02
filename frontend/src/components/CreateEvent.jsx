@@ -16,12 +16,6 @@ const CreateEvent = ({ onEventAdded }) => {
         e.preventDefault();
         setLoading(true);
     
-        // Log the values to check if they are set correctly
-        console.log("Title:", title);
-        console.log("Description:", description);
-        console.log("Category ID:", categoryId);
-        console.log("Value ID:", valueId);
-    
         if (!title.trim() || !description.trim() || !place.trim() || !time || !date) {
             alert('All fields must be filled!');
             setLoading(false);

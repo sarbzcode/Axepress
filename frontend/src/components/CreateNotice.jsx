@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Categories from './Categories';
+import '../styles/CreateNotice.css';
 
 const CreateNotice = ({ onNoticeAdded }) => {
     const [title, setTitle] = useState('');
@@ -59,6 +60,7 @@ const CreateNotice = ({ onNoticeAdded }) => {
     };
 
     return (
+        <div className="create-notice-container">
         <form onSubmit={handleSubmit}>
             <div>
                 <label>Title:</label>
@@ -72,6 +74,7 @@ const CreateNotice = ({ onNoticeAdded }) => {
             <Categories setCategoryFilter={setCategoryId} setValueFilter={setValueId} />
             <button type="submit" disabled={loading}>{loading ? "Creating..." : "Create Notice"}</button>
         </form>
+        </div>
     );
 };
 
