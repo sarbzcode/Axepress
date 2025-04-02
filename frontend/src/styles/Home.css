@@ -1,0 +1,126 @@
+/* Home Container */
+.home-container {
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #ffffff; /* Dark blue */
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #2C3E50; /* Soft teal */
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+p {
+    font-size: 18px;
+    color: #16a085; /* Light greenish */
+    margin-bottom: 40px;
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+    margin-bottom: 40px;
+}
+
+/* Cards Section */
+.cards-section {
+    flex: 1 1 calc(50% - 15px);
+    box-sizing: border-box;
+}
+
+.cards-section h3 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-align: left;
+    text-transform: uppercase;
+    color: #2980b9;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    justify-items: center;
+}
+
+.card {
+    background-color: #34495e; /* Dark grayish blue */
+    border: 1px solid #ecf0f1; /* Yellowish for contrast */
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 280px;
+    max-width: 300px;
+    width: 100%;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(44, 62, 80, 0.3);
+}
+
+.card h4 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.card p {
+    font-size: 16px;
+    color: #ecf0f1;
+    margin-bottom: 10px;
+    line-height: 1.5;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    line-clamp: 5;
+}
+
+.card-link {
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 15px;
+    background-color: #2ecc71; /* Yellowish */
+    color: #ffffff; /* Darker contrast for readability */
+    border-radius: 6px;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.card-link:hover {
+    background-color: #27ae60; /* Slightly darker yellow on hover */
+    transform: scale(1.05);
+}
+
+/* Loading text */
+.loading {
+    text-align: center;
+    font-size: 18px;
+    color: #7f8c8d;
+    font-weight: bold;
+    margin-top: 40px;
+}
+
+/* Responsive design for mobile */
+@media (max-width: 768px) {
+    .cards-container {
+        grid-template-columns: 1fr;
+    }
+}

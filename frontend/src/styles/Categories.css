@@ -1,0 +1,37 @@
+.category-filter {
+    margin: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.category-filter div {
+    margin-bottom: 15px;
+}
+
+.category-filter label {
+    font-size: 16px;
+    margin-bottom: 5px;
+    display: block;
+    color: #333;
+}
+
+.category-filter select {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+.category-filter select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.category-filter select option {
+    font-size: 16px;
+    padding: 8px;
+}
