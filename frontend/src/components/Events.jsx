@@ -77,22 +77,15 @@ const Events = () => {
                 <p>Loading...</p>
             ) : (
                 events.length > 0 ? (
-                    <ul>
-                    {events.map((event) => (
+                    <ul className="cards-list">
+                      {events.map((event) => (
                         <li key={event.id} className="event-card">
-                            <h3>{event.title}</h3>
-                            <p>{event.description}</p>
-                            <p><strong>Location:</strong> {event.place}</p>
-                            {event.date && event.time && (
-                        <>
-                        <p><strong>Date: </strong>{formatDateTime(event.date, event.time).date}</p>
-                        <p><strong>Time: </strong>{formatDateTime(event.date, event.time).time}</p>
-                        </>
-                    )}
-                            <a className="details" href={`/events/${event.id}`}>View Details</a>
+                          <h3>{event.title}</h3>
+                          <p>{event.description}</p>
+                          <a className="details" href={`/events/${event.id}`}>View Details</a>
                         </li>
-                    ))}
-                </ul>
+                      ))}
+                    </ul>
             ) : (
                 <p>No events found for the selected filters.</p>
                 )

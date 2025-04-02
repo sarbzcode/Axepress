@@ -1,78 +1,61 @@
 .auth-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    min-height: 100vh;
-    background: linear-gradient(to right, #87ceeb, #4caf50); /* Sky Blue to Meadow Green gradient */
-    padding: 20px;
-}
-
-h2 {
-    font-size: 28px;
-    color: #fff; /* White text for better contrast against the gradient */
-    margin-bottom: 20px;
-    font-weight: bold;
-    text-align: center;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
     max-width: 400px;
-    background-color: rgba(255, 255, 255, 0.9); /* Slight opacity to make the gradient show through */
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
-
-input {
-    padding: 12px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
     border-radius: 8px;
-    font-size: 16px;
-    transition: border 0.3s ease;
-}
-
-input:focus {
-    border-color: #4caf50; /* Meadow Green border on focus */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  h2 {
+    font-family: 'Arial', sans-serif;
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 5px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
     outline: none;
-}
-
-button {
+    transition: all 0.3s ease;
+  }
+  
+  input:focus {
+    border-color: #6c5ce7;
+  }
+  
+  button {
+    width: 100%;
     padding: 12px;
-    background-color: #4caf50; /* Meadow Green background for the button */
+    background-color: #6c5ce7;
     color: white;
-    font-size: 16px;
+    font-size: 1rem;
     border: none;
-    border-radius: 8px;
+    border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin-top: 10px;
-}
-
-button:hover {
-    background-color: #388e3c; /* Darker green on hover */
-}
-
-.error {
-    color: #d9534f;
-    background-color: #f8d7da;
-    padding: 10px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    width: 100%;
-    text-align: center;
-}
-
-@media (max-width: 768px) {
+  }
+  
+  button:hover {
+    background-color: #5a4bc0;
+  }
+  
+  .error {
+    color: red;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+  }
+  
+  @media (max-width: 500px) {
     .auth-container {
-        padding: 10px;
+      width: 90%;
+      padding: 15px;
     }
-
-    form {
-        padding: 20px;
-    }
-}
+  }
+  

@@ -13,6 +13,8 @@ const Categories = ({ setCategoryFilter, setValueFilter, allowCreation = false }
     const [valueSearch, setValueSearch] = useState('');
     const [error, setError] = useState(null);
 
+    console.log("Categories:", categories);
+
     // Fetch categories with error handling
     useEffect(() => {
         const fetchCategories = async () => {
@@ -103,10 +105,12 @@ const Categories = ({ setCategoryFilter, setValueFilter, allowCreation = false }
                 if (!category) throw new Error("Category creation returned null");
                 setCategories(prev => [...prev, category]);
             }
+            console.log("Selected Category:", selected);
+            console.log("Loading State:", loading);
     
             if (category) {
                 setSelectedCategory(category);
-                setCategoryFilter(category.id);
+                setCategoryFilter(category);
                 setCategorySearch(category.name);
                 setSelectedValue(null); // Reset value when category changes
                 setValueFilter(null);

@@ -21,6 +21,10 @@ const SearchableDropdown = ({
     searchTerm.length > 0 &&
     !items.some(item => item.name.toLowerCase() === searchTerm.toLowerCase());
 
+    console.log("Dropdown items:", items);
+console.log("Search term:", searchTerm);
+console.log("Filtered Items:", filteredItems);
+
     return (
       <div className="dropdown-container">
           <div className="searchable-dropdown">
@@ -47,6 +51,7 @@ const SearchableDropdown = ({
                                           key={item.id}
                                           className="dropdown-item"
                                           onClick={() => {
+                                            console.log("item selected:", item);
                                               onSelect(item);
                                               setIsOpen(false);
                                           }}

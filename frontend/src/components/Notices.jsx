@@ -40,7 +40,7 @@ const Notices = () => {
         <div>
           <Categories setCategoryFilter={setCategoryFilter} setValueFilter={setValueFilter} />
           <div className="notices-container">
-            <h2>Upcoming Notices!</h2>
+            <h2>Notices</h2>
             {loading ? (
               <p>Loading...</p>
             ) : (
