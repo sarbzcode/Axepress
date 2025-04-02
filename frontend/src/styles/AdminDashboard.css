@@ -118,3 +118,85 @@
   margin-bottom: 30px;
   text-align: center;
 }
+
+/* Container for the notices list */
+.notices-list {
+  display: flex; /* Use Flexbox to place items horizontally */
+  flex-wrap: wrap; /* Allow items to wrap onto a new row when necessary */
+  gap: 20px; /* Space between the cards */
+  justify-content: space-evenly; /* Space the cards evenly */
+  margin-top: 20px; /* Space above the list */
+}
+
+/* Individual notice card */
+.notice-item {
+  width: 300px; /* Fixed width for each card */
+  background-color: #34495e; /* White background for each card */
+  padding: 15px; /* Padding inside the card */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease; /* Smooth transition for hover effect */
+  flex-shrink: 0; /* Prevent shrinking when the container resizes */
+}
+
+/* Hover effect on the card */
+.notice-item:hover {
+  transform: translateY(-10px); /* Slight lift effect */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Deeper shadow for hover effect */
+}
+
+/* Title styling */
+.notice-title {
+  font-size: 18px; /* Title font size */
+  font-weight: bold; /* Bold title */
+  margin-bottom: 10px; /* Space between title and description */
+  color: #ffffff; /* Dark text color */
+}
+
+/* Description styling */
+.notice-description {
+  font-size: 14px; /* Description font size */
+  color: #7f8c8d; /* Light grey text color */
+  margin-bottom: 15px; /* Space between description and actions */
+  line-height: 1.6; /* Line height for better readability */
+}
+
+/* Action buttons container */
+.notice-actions {
+  display: flex; /* Arrange buttons horizontally */
+  justify-content: space-between; /* Space the buttons evenly */
+}
+
+/* Edit button */
+.btn-edit {
+  background-color: #3498db; /* Blue background for edit button */
+  color: white; /* White text */
+  padding: 8px 15px; /* Button padding */
+  font-size: 14px; /* Button font size */
+  border: none; /* Remove border */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor */
+  transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+/* Edit button hover effect */
+.btn-edit:hover {
+  background-color: #2980b9; /* Darker blue on hover */
+}
+
+/* Delete button */
+.btn-delete {
+  background-color: #e74c3c; /* Red background for delete button */
+  color: white; /* White text */
+  padding: 8px 15px; /* Button padding */
+  font-size: 14px; /* Button font size */
+  border: none; /* Remove border */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor */
+  transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+/* Delete button hover effect */
+.btn-delete:hover {
+  background-color: #c0392b; /* Darker red on hover */
+}

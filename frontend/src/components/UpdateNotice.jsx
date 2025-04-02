@@ -50,19 +50,20 @@ const UpdateNotice = ({ noticeId, onNoticeUpdated }) => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <div>
+        <form className="update-notice-form" onSubmit={handleSubmit}>
+            <div className="form-group">
                 <label>Title:</label>
                 <input type="text" name="title" value={noticeData.title} onChange={handleChange} disabled={loading} />
             </div>
-            <div>
+            <div className="form-group">
                 <label>Description:</label>
                 <textarea name="description" value={noticeData.description} onChange={handleChange} disabled={loading} />
             </div>
+            <div className="category-value-select">
+            <Categories setCategoryId={setCategoryId} setValueId={setValueId} />
+            </div>
 
-            { <Categories setCategoryId={setCategoryId} setValueId={setValueId} />}
-
-            {error && <p style={{ color: 'red' }}>{error}</p>}
+            {error && <p lassName="error-message" style={{ color: 'red' }}>{error}</p>}
 
             <button type="submit" disabled={loading}>
                 {loading ? "Updating..." : "Update Event"}

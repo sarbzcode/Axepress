@@ -1,8 +1,8 @@
 /* Container for the entire form */
 .create-notice-container {
-    max-width: 800px; /* Wider container for better alignment */
+    max-width: 450px; /* Wider container for better alignment */
     margin: 0 auto;
-    padding: 30px;
+    padding: 15px;
     background: #f9f9f9;
     border-radius: 10px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);

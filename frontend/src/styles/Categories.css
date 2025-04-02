@@ -1,37 +1,102 @@
+/* Container for the category filter */
 .category-filter {
-    margin: 20px;
+    max-width: 100%;
+    margin: 0 auto;
     padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.category-filter div {
-    margin-bottom: 15px;
-}
-
-.category-filter label {
-    font-size: 16px;
-    margin-bottom: 5px;
-    display: block;
-    color: #333;
-}
-
-.category-filter select {
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow: hidden; /* Prevent overflow that could break the border-radius */
+    box-sizing: border-box; /* Include padding and borders in element's total width and height */
+  }
+  
+  /* Each filter group */
+  .filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
     width: 100%;
-    padding: 8px;
+    box-sizing: border-box; /* Include padding and borders in element's total width and height */
+  }
+  
+  /* Label styling */
+  .filter-group label {
+    font-weight: bold;
+    color: #34495e;
     font-size: 16px;
+    margin-bottom: 5px; /* Reduce the space below the label */
+  }
+  
+  /* Error message styling */
+  .error-message {
+    color: #e74c3c;
+    font-size: 14px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  /* Category and Value SearchableDropdown */
+  .category-filter .filter-group .searchable-dropdown {
+    width: 100%;
+    margin-top: 8px;
+    box-sizing: border-box;
+  }
+  
+  /* Dropdown input styling */
+  .category-filter input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
     border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: #fff;
-}
-
-.category-filter select:focus {
-    border-color: #007bff;
-    outline: none;
-}
-
-.category-filter select option {
     font-size: 16px;
-    padding: 8px;
-}
+    color: #2c3e50;
+    box-sizing: border-box; /* Ensure padding is included in width calculation */
+    margin: 0; /* Remove extra margin */
+  }
+  
+  .category-filter input[type="text"]:focus {
+    outline: none;
+    border-color: #007bff;
+  }
+  
+  /* Loading state (for showing spinner or loading text) */
+  .category-filter .filter-group .loading {
+    color: #007bff;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  /* Styling for create category and value options */
+  .category-filter .create-option {
+    font-size: 14px;
+    color: #007bff;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  /* Ensure input fields stay inside */
+  .category-filter input[type="text"], .category-filter select {
+    max-width: 100%; /* Ensure they don’t overflow */
+    overflow: hidden; /* Prevent overflow */
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 600px) {
+    .category-filter {
+      padding: 5px;
+    }
+    .filter-group {
+      gap: 12px;
+    }
+    .category-filter input[type="text"] {
+      font-size: 14px;
+    }
+  }
+  
