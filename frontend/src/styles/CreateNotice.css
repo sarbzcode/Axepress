@@ -1,6 +1,6 @@
 /* Container for the entire form */
 .create-notice-container {
-    max-width: 800px; /* Increased width for more space */
+    max-width: 800px; /* Wider container for better alignment */
     margin: 0 auto;
     padding: 30px;
     background: #f9f9f9;
@@ -9,7 +9,7 @@
     font-family: Arial, sans-serif;
     display: flex;
     flex-direction: column;
-    gap: 20px; /* Add spacing between form elements */
+    gap: 20px;
   }
   
   /* Form Heading */
@@ -26,7 +26,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 8px; /* Add spacing between label and input */
+    gap: 8px;
   }
   
   /* Label styling */
@@ -45,7 +45,7 @@
     border: 1px solid #ccc;
     font-size: 16px;
     color: #2c3e50;
-    box-sizing: border-box; /* Ensure padding doesn't affect width */
+    box-sizing: border-box;
   }
   
   .create-notice-container input:focus,
@@ -85,14 +85,15 @@
   
   /* Category Section Styling */
   .create-notice-container .categories {
-    width: 100%; /* Ensure full width for the categories section */
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
     gap: 15px;
+    justify-content: space-between;
   }
   
   .create-notice-container .categories select {
-    flex: 1; /* Allow select elements to stretch */
+    flex: 1 1 200px; /* Ensures select elements take up equal space and wrap when needed */
+    max-width: 380px; /* Prevents overflow by limiting max width */
   }
   
   /* Optional error message styling */
