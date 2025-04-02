@@ -116,5 +116,5 @@
 /* Ensure the dashboard title has proper spacing */
 .dashboard-title {
   margin-bottom: 30px;
-  padding-right: 120px; /* Space for logout button */
+  text-align: center;
 }
