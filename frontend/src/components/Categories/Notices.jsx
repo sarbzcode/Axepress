@@ -1,6 +1,3 @@
-//React - to use .jsx features
-//useEffect - runs effects like fetching data after component mounts
-//useState - managing state within component
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';

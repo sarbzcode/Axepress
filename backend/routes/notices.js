@@ -77,7 +77,7 @@ router.put('/:id', ensureAuthenticated, async (req, res) => {
     }
 
     try {
-        // Update event
+        // Update notice
         const result = await pool.query(
             `UPDATE notices
              SET title = $1, description = $2, category_id = $3

@@ -94,7 +94,6 @@ const UpdatedNotice = () => {
         {notices.map((notice) => (
           <div key={notice.id} className="notice-card">
             <h3>{notice.title}</h3>
-            {/* Date and Time removed from display */}
             <p>{notice.description}</p>
             <button className="edit-button" onClick={() => handleEditClick(notice)}>Edit</button>
           </div>
