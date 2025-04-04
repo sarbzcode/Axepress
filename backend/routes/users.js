@@ -48,4 +48,15 @@ router.delete('/:id', async(req, res) => {
     }
 });
 
+router.get('/count', async (req, res) => {
+    try {
+        const result = await pool.query('SELECT COUNT(*) FROM users');
+        const userCount = result.rows[0].count;
+        res.json({userCount});
+    } catch (err) {
+        console.error('Error fetching user count:', err);
+        res.status(500).json({error: 'Server error'});
+    }
+});
+
 module.exports = router;
