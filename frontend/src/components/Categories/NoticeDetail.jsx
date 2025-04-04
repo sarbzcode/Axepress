@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import '../styles/NoticeDetail.css';
+import '@styles/NoticeDetail.css';
 
 const NoticeDetail = () => {
     const {id} = useParams();
@@ -25,14 +25,14 @@ const NoticeDetail = () => {
     return (
         <div className='notice-detail'>
             {loading ? (
-                <p>Loading...</p>
+                <p className='loading'>Loading...</p>
             ) : notice ? (
                 <div>
                     <h2>{notice.title}</h2>
                     <p>{notice.description}</p>
                 </div>
             ) : (
-                <p>Notice not found.</p>
+                <p className='error'>Notice not found.</p>
             )}
         </div>
     );

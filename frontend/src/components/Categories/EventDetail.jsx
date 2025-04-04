@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import * as ics from 'ics';
-import '../styles/EventDetail.css';
+import '@styles/EventDetail.css';
 
 const EventDetail = () => {
     const {id} = useParams();
@@ -131,7 +131,7 @@ const EventDetail = () => {
     return (
         <div className='event-detail'>
             {loading ? (
-                <p>Loading...</p>
+                <p className='loading'>Loading...</p>
             ) : event ? (
                 <div>
                     <h2>{event.title}</h2>
@@ -143,16 +143,16 @@ const EventDetail = () => {
                         <p><strong>Time: </strong>{formatDateTime(event.date, event.time).time}</p>
                         </>
                     )}
-                    <button onClick={handleAddToCalendarClick}>Add to Calendar</button>
+                    <button className="add-to-calendar-btn" onClick={handleAddToCalendarClick}>Add to Calendar</button>
                     {showCalendarOptions && (
                         <div className='calendar-options'>
-                            <button onClick={handleAppleCalendar}>Apple Calendar</button>
-                            <button onClick={handleOutlookCalendar}>Outlook Calendar</button>
+                            <button className="calendar-btn" onClick={handleAppleCalendar}>Apple Calendar</button>
+                            <button className="calendar-btn" onClick={handleOutlookCalendar}>Outlook Calendar</button>
                         </div>
                     )}
                 </div>
             ) : (
-                <p>Event not found!</p>
+                <p className='error'>Event not found!</p>
             )}
         </div>
     );

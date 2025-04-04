@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import '@styles/Signup.css'
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -12,6 +13,7 @@ const Signup = () => {
   });
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -20,11 +22,13 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
 
     // Check invitation code before submitting
-    const validCode = 'AcadiaU@AxeConnect'; // Secret code for club leaders only
+    const validCode = 'GoAcadiaGo'; // Secret code for club leaders only
     if (formData.invitationCode !== validCode) {
       setError('Invalid invitation code. Only club leaders/presidents or social media managers can sign up.');
+      setIsSubmitting(false);
       return;
     }
 
@@ -33,7 +37,10 @@ const Signup = () => {
       setSuccess('Account created successfully. Please log in.');
       setTimeout(() => navigate('/login'), 2000);
     } catch (err) {
+      console.log('Error during signup:', err);
       setError('Error creating account. Try again.');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -47,10 +54,8 @@ const Signup = () => {
         <input type="text" name="username" placeholder="Username" onChange={handleChange} required />
         <input type="email" name="email" placeholder="Email" onChange={handleChange} required />
         <input type="password" name="password" placeholder="Password" onChange={handleChange} required />
-        
         <input type="text" name="invitationCode" placeholder="Invitation Code" onChange={handleChange} required />
-        
-        <button type="submit">Signup</button>
+        <button type="submit" disabled={isSubmitting}>{isSubmitting ? 'Submitting...' : 'Signup'}</button>
       </form>
     </div>
   );

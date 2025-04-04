@@ -1,202 +1,78 @@
-/* Add to your AdminDashboard.css */
-.button-container {
-  margin: 20px 0;
-  display: flex;
-  gap: 15px;
-}
-
-.btn {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-weight: 500;
-}
-
-/* Logout Button */
-.btn-logout {
-  background-color: #dc3545;
-  color: white;
-  position: absolute;
-  top: 20px;
-  right: 20px;
-}
-
-.btn-logout:hover {
-  background-color: #bb2d3b;
-}
-
-/* Create/Update Buttons */
-.btn-primary {
-  background-color: #0d6efd;
-  color: white;
-}
-
-.btn-primary:hover {
-  background-color: #0b5ed7;
-}
-
-/* Edit Buttons */
-.btn-edit {
-  background-color: #ffc107;
-  color: black;
-}
-
-.btn-edit:hover {
-  background-color: #e0a800;
-}
-
-/* Delete Buttons */
-.btn-delete {
-  background-color: #dc3545;
-  color: white;
-}
-
-.btn-delete:hover {
-  background-color: #bb2d3b;
-}
-
-/* Form Submit Buttons */
-.form-button {
-  background-color: #198754;
-  color: white;
-  padding: 12px 24px;
-  margin-top: 15px;
-}
-
-.form-button:hover {
-  background-color: #157347;
-}
-
-/* Add some hover effects */
-.btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-/* For icon buttons */
-.btn-icon {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-/* AdminDashboard.css */
+/* Container for the admin dashboard */
 .admin-dashboard {
-  position: relative; /* Add this for absolute positioning context */
-  padding: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    background-color: #f4f4f9; /* Light background color */
+    min-height: 100vh;
+    box-sizing: border-box;
 }
 
-.log-out-container {
-  position: absolute;
-  top: 20px;
-  right: 20px;
+/* Header styling */
+.admin-dashboard h1 {
+    font-size: 2.5rem;
+    color: #2C3E50; /* Navy Blue */
+    margin-bottom: 1.5rem;
 }
 
-/* Add these to fix button visibility */
-.btn-logout {
-  position: static; /* Override absolute positioning */
-  margin: 10px;
-  background-color: #dc3545;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+/* Task section header */
+.admin-dashboard h3 {
+    font-size: 1.8rem;
+    color: #34495E; /* Dark Gray */
+    margin-bottom: 1rem;
 }
 
-.btn-logout:hover {
-  background-color: #bb2d3b;
+/* Task list container */
+.task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 2rem;
 }
 
-/* Ensure the dashboard title has proper spacing */
-.dashboard-title {
-  margin-bottom: 30px;
-  text-align: center;
+/* Individual task button styling */
+.task-item {
+    padding: 1rem;
+    font-size: 1.2rem;
+    background-color: #27AE60; /* Fresh Green */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-align: center;
 }
 
-/* Container for the notices list */
-.notices-list {
-  display: flex; /* Use Flexbox to place items horizontally */
-  flex-wrap: wrap; /* Allow items to wrap onto a new row when necessary */
-  gap: 20px; /* Space between the cards */
-  justify-content: space-evenly; /* Space the cards evenly */
-  margin-top: 20px; /* Space above the list */
+/* Hover effect for task items */
+.task-item:hover {
+    background-color: #2E8B57; /* Darker Green */
+    transform: translateY(-3px);
 }
 
-/* Individual notice card */
-.notice-item {
-  width: 300px; /* Fixed width for each card */
-  background-color: #34495e; /* White background for each card */
-  padding: 15px; /* Padding inside the card */
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease; /* Smooth transition for hover effect */
-  flex-shrink: 0; /* Prevent shrinking when the container resizes */
+/* User count section */
+.user-count {
+    font-size: 1.3rem;
+    color: #34495E;
+    margin-bottom: 2rem;
 }
 
-/* Hover effect on the card */
-.notice-item:hover {
-  transform: translateY(-10px); /* Slight lift effect */
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Deeper shadow for hover effect */
+/* Logout button styling */
+.logout-button {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    background-color: #E74C3C; /* Red */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-/* Title styling */
-.notice-title {
-  font-size: 18px; /* Title font size */
-  font-weight: bold; /* Bold title */
-  margin-bottom: 10px; /* Space between title and description */
-  color: #ffffff; /* Dark text color */
-}
-
-/* Description styling */
-.notice-description {
-  font-size: 14px; /* Description font size */
-  color: #7f8c8d; /* Light grey text color */
-  margin-bottom: 15px; /* Space between description and actions */
-  line-height: 1.6; /* Line height for better readability */
-}
-
-/* Action buttons container */
-.notice-actions {
-  display: flex; /* Arrange buttons horizontally */
-  justify-content: space-between; /* Space the buttons evenly */
-}
-
-/* Edit button */
-.btn-edit {
-  background-color: #3498db; /* Blue background for edit button */
-  color: white; /* White text */
-  padding: 8px 15px; /* Button padding */
-  font-size: 14px; /* Button font size */
-  border: none; /* Remove border */
-  border-radius: 4px; /* Rounded corners */
-  cursor: pointer; /* Pointer cursor */
-  transition: background-color 0.3s ease; /* Smooth transition on hover */
-}
-
-/* Edit button hover effect */
-.btn-edit:hover {
-  background-color: #2980b9; /* Darker blue on hover */
-}
-
-/* Delete button */
-.btn-delete {
-  background-color: #e74c3c; /* Red background for delete button */
-  color: white; /* White text */
-  padding: 8px 15px; /* Button padding */
-  font-size: 14px; /* Button font size */
-  border: none; /* Remove border */
-  border-radius: 4px; /* Rounded corners */
-  cursor: pointer; /* Pointer cursor */
-  transition: background-color 0.3s ease; /* Smooth transition on hover */
-}
-
-/* Delete button hover effect */
-.btn-delete:hover {
-  background-color: #c0392b; /* Darker red on hover */
+/* Hover effect for logout button */
+.logout-button:hover {
+    background-color: #C0392B; /* Darker Red */
+    transform: translateY(-3px);
 }

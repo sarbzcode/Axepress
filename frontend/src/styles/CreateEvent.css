@@ -1,5 +1,5 @@
 /* Main form styling */
-.create-notice-form {
+.create-event-form {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -13,7 +13,7 @@
 }
 
 /* Header for the form */
-.create-notice-form .form-header h2 {
+.create-event-form .form-header h2 {
     font-size: 2.2rem;
     color: #34495E;
     margin-bottom: 2rem;
@@ -25,7 +25,7 @@
 }
 
 /* Styling for form input labels */
-.create-notice-form label {
+.create-event-form label {
     font-size: 1.1rem;
     color: #34495E;
     margin-bottom: 0.5rem;
@@ -36,8 +36,10 @@
 }
 
 /* Styling for form inputs, textareas, and select fields */
-.create-notice-form input[type="text"],
-.create-notice-form select {
+.create-event-form input[type="text"],
+.create-event-form input[type="date"],
+.create-event-form input[type="time"],
+.create-event-form select {
     width: 100%;
     padding: 1rem;
     margin-bottom: 1.5rem;
@@ -51,7 +53,7 @@
 }
 
 /* Specific styling for the description textarea to make it larger */
-.create-notice-form textarea {
+.create-event-form textarea {
     width: 100%;
     height: 150px; /* Makes it taller */
     padding: 1rem;
@@ -66,16 +68,16 @@
 }
 
 /* Focus effect for input fields */
-.create-notice-form input:focus,
-.create-notice-form textarea:focus,
-.create-notice-form select:focus {
+.create-event-form input:focus,
+.create-event-form textarea:focus,
+.create-event-form select:focus {
     border-color: #8A1538; /* Crimson Red border */
     outline: none;
     box-shadow: 0 0 10px rgba(138, 21, 56, 0.2); /* Soft shadow on focus */
 }
 
 /* Button styling */
-.create-notice-form .submit-button {
+.create-event-form .submit-button {
     padding: 1rem 2.5rem;
     font-size: 1.2rem;
     background-color: #27AE60; /* Fresh Green */
@@ -91,24 +93,24 @@
 }
 
 /* Hover effect for the submit button */
-.create-notice-form .submit-button:hover {
+.create-event-form .submit-button:hover {
     background-color: #2E8B57; /* Darker Green */
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(46, 139, 87, 0.2);
 }
 
 /* Disabled form elements */
-.create-notice-form input:disabled,
-.create-notice-form textarea:disabled,
-.create-notice-form select:disabled,
-.create-notice-form .submit-button:disabled {
+.create-event-form input:disabled,
+.create-event-form textarea:disabled,
+.create-event-form select:disabled,
+.create-event-form .submit-button:disabled {
     background-color: #f0f0f0; /* Light gray background */
     cursor: not-allowed;
     border-color: #ddd;
 }
 
 /* Error message */
-.create-notice-form .error {
+.create-event-form .error {
     color: #E74C3C; /* Red */
     margin-bottom: 1rem;
     font-size: 1.1rem;
@@ -116,7 +118,7 @@
 }
 
 /* Success message */
-.create-notice-form .success {
+.create-event-form .success {
     color: #27AE60; /* Green */
     margin-bottom: 1rem;
     font-size: 1.1rem;
@@ -125,11 +127,11 @@
 
 /* Responsive adjustments for smaller screens */
 @media (max-width: 768px) {
-    .create-notice-form {
+    .create-event-form {
         padding: 2rem;
     }
 
-    .create-notice-form .submit-button {
+    .create-event-form .submit-button {
         max-width: 100%;
     }
 }

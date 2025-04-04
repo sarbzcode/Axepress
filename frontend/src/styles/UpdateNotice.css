@@ -1,0 +1,81 @@
+/* ---------- Container ---------- */
+.notice-container {
+    padding: 2rem;
+    background-color: #f4f7fa;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-top: 5rem; /* if navbar overlaps */
+  }
+  
+  /* ---------- Heading ---------- */
+  .notice-container h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 2.5rem;
+  }
+  
+  /* ---------- Grid ---------- */
+  .notice-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.8rem;
+  }
+  
+  /* ---------- Notice Card ---------- */
+  .notice-card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease;
+    min-height: 220px;
+    height: auto;
+  }
+  
+  .notice-card:hover {
+    transform: translateY(-4px);
+  }
+  
+  .notice-card h3 {
+    font-size: 1.4rem;
+    color: #34495e;
+    margin-bottom: 0.6rem;
+    font-weight: 600;
+  }
+  
+  .notice-card p {
+    font-size: 0.95rem;
+    color: #6c7a89;
+    line-height: 1.5rem;
+    margin-bottom: 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    line-clamp: 4;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: calc(1.5rem * 4);
+  }
+  
+  /* ---------- Button ---------- */
+  .edit-button {
+    align-self: flex-start;
+    margin-top: auto;
+    background-color: #3498db;
+    color: white;
+    padding: 0.5rem 1rem;
+    font-size: 0.95rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .edit-button:hover {
+    background-color: #2980b9;
+  }  
