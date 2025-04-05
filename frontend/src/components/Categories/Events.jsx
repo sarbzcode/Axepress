@@ -2,76 +2,91 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import '@styles/Events.css';
-import headerImage from '@assets/Acadia_Events.jpg'
+import headerImage from '@assets/Acadia_Events.jpg';
 
 const Events = () => {
+    // State to store the list of events
     const [events, setEvents] = useState([]);
+    
+    // State to store the categories (e.g., different event types)
     const [categories, setCategories] = useState([]);
-    const [selectedCategory, setSelectedCategory] = useState("");  // Default: No category selected
+    
+    // State to keep track of the selected category (default is no category selected)
+    const [selectedCategory, setSelectedCategory] = useState("");
 
+    // Fetch categories and events when the component is mounted
     useEffect(() => {
-        // Fetch all categories
+        // Fetch all categories from the API
         axios.get("http://localhost:5000/api/categories")
-            .then((res) => setCategories(res.data))
-            .catch((err) => console.error("Error fetching categories:", err));
+            .then((res) => setCategories(res.data)) // Set categories in state
+            .catch((err) => console.error("Error fetching categories:", err)); // Log error if fetching fails
 
-        // Fetch events (default: all)
-        fetchEvents();
-    }, []);
+        // Fetch events (default: all events)
+        fetchEvents(); // Call function to fetch all events initially
+    }, []); // Empty dependency array means this runs once when the component mounts
 
+    // Function to fetch events, optionally filtered by category
     const fetchEvents = (categoryId = "") => {
-        let url = "http://localhost:5000/api/events/all"; // Get all events
+        let url = "http://localhost:5000/api/events/all"; // Default to fetching all events
         if (categoryId) {
-            url = `http://localhost:5000/api/events/categories/${categoryId}`; // Append category filter if selected
+            // If a category is selected, fetch events filtered by that category
+            url = `http://localhost:5000/api/events/categories/${categoryId}`;
         }
 
+        // Make API request to fetch events
         axios.get(url)
             .then((res) => {
-                console.log("Filtered Events:", res.data);
-                setEvents(res.data);
+                console.log("Filtered Events:", res.data); // Log the fetched events (for debugging)
+                setEvents(res.data); // Set the fetched events in state
             })
-            .catch((err) => console.error("Error fetching events:", err));
+            .catch((err) => console.error("Error fetching events:", err)); // Log error if fetching fails
     };
 
+    // Function to handle category selection change
     const handleCategoryChange = (event) => {
-        const categoryId = event.target.value;
-        setSelectedCategory(categoryId); // Update state
-        fetchEvents(categoryId); // Fetch events for selected category
+        const categoryId = event.target.value; // Get selected category ID
+        setSelectedCategory(categoryId); // Update the selected category in state
+        fetchEvents(categoryId); // Fetch events for the selected category
     };
 
     return (
         <div className="events-page">
+            {/* Header with an image */}
             <header className='header'>
-                <img src={headerImage} alt='Acadia theatre' className='header-image'/>
+                <img src={headerImage} alt='Acadia theatre' className='header-image' />
             </header>
+
+            {/* Events page heading */}
             <h2 className="events-heading">Events</h2>
 
-            {/* Dropdown for category selection */}
+            {/* Dropdown menu to select event category */}
             <select value={selectedCategory} onChange={handleCategoryChange} className="category-dropdown">
                 <option value="">All Categories</option>
                 {categories.map((category) => (
-                <option key={category.id} value={category.id}>
-                    {category.name}
-                </option>
+                    <option key={category.id} value={category.id}>
+                        {category.name}
+                    </option>
                 ))}
             </select>
 
-            {/* Display Events */}
+            {/* Display list of events */}
             <ul className="events-list">
                 {events.length > 0 ? (
-                events.map((event) => (
-                    <li key={event.id} className="event-item">
-                    <h3 className="event-title">{event.title}</h3>
-                    <p className="event-description">{event.description}</p>
-                    <Link to={`/events/${event.id}`} className="event-link">View Details</Link>
-                    </li>
-                ))
+                    // If events are found, display them in a list
+                    events.map((event) => (
+                        <li key={event.id} className="event-item">
+                            <h3 className="event-title">{event.title}</h3>
+                            <p className="event-description">{event.description}</p>
+                            {/* Link to view event details */}
+                            <Link to={`/events/${event.id}`} className="event-link">View Details</Link>
+                        </li>
+                    ))
                 ) : (
-                <p className="no-events-message">No events found.</p>
+                    // Display message if no events are found
+                    <p className="no-events-message">No events found.</p>
                 )}
             </ul>
         </div>
-
     );
 };
 

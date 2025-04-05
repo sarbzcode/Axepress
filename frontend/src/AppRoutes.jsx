@@ -18,13 +18,19 @@ import DeleteEvent from './components/Admin/DeleteEvent';
 function AppRoutes({ isLoggedIn, setIsLoggedIn }) {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/notices/all" element={<Notices />} />
-      <Route path="/events/all" element={<Events />} />
-      <Route path="/notices/:id" element={<NoticeDetail />} />
-      <Route path="/events/:id" element={<EventDetail />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/signup" element={<Signup />} />
+      {/* Main Routes */}
+      <Route path="/" element={<Home />} />  {/* Home page */}
+      <Route path="/notices/all" element={<Notices />} />  {/* Displays all notices */}
+      <Route path="/events/all" element={<Events />} />  {/* Displays all events */}
+      <Route path="/notices/:id" element={<NoticeDetail />} />  {/* Displays notice details by ID */}
+      <Route path="/events/:id" element={<EventDetail />} />  {/* Displays event details by ID */}
+      
+      {/* Authentication Routes */}
+      <Route path="/login" element={<Login />} />  {/* Login page */}
+      <Route path="/signup" element={<Signup />} />  {/* Signup page */}
+
+      {/* Admin Routes */}
+      {/* Admin dashboard is protected and will only render if the user is logged in */}
       <Route
         path="/admindashboard"
         element={
@@ -35,12 +41,15 @@ function AppRoutes({ isLoggedIn, setIsLoggedIn }) {
           )
         }
       />
-      <Route path='/create-notice' element={<CreateNotice />} />
-      <Route path='/update-notice' element={<UpdateNotice />} />
-      <Route path='/delete-notice' element={<DeleteNotice />} />
-      <Route path='/create-event' element={<CreateEvent />} />
-      <Route path='/update-event' element={<UpdateEvent />} />
-      <Route path='/delete-event' element={<DeleteEvent />} />
+
+      {/* Admin CRUD Routes (Create, Update, Delete notices and events) */}
+      <Route path='/create-notice' element={<CreateNotice />} />  {/* Page for creating a notice */}
+      <Route path='/update-notice' element={<UpdateNotice />} />  {/* Page for updating a notice */}
+      <Route path='/delete-notice' element={<DeleteNotice />} />  {/* Page for deleting a notice */}
+      <Route path='/create-event' element={<CreateEvent />} />  {/* Page for creating an event */}
+      <Route path='/update-event' element={<UpdateEvent />} />  {/* Page for updating an event */}
+      <Route path='/delete-event' element={<DeleteEvent />} />  {/* Page for deleting an event */}
+      
     </Routes>
   );
 }
