@@ -3,11 +3,12 @@ const router = express.Router();
 const pool = require('../db');
 const ensureAuthenticated = require('./auth');
 
-// GET all notices with filtering by category
+// Route to fetch all notices, optionally filter by category
 router.get('/all', async (req, res) => {
     try {
         const {categoryId} = req.query;
         
+        // Base query to join notices with their categories
         let query = `
             SELECT n.*, c.name AS category_name
             FROM notices n
@@ -17,12 +18,14 @@ router.get('/all', async (req, res) => {
         const params = [];
         let whereAdded = false;
         
+        // If categoryId is provided, add a WHERE clause for filtering
         if (categoryId) {
             query += ' WHERE n.category_id = $1';
             params.push(categoryId);
             whereAdded = true;
         }
         
+        // Order notices by the date they were created (most recent first)
         query += ' ORDER BY created_at DESC';
         
         const result = await pool.query(query, params);
@@ -33,31 +36,32 @@ router.get('/all', async (req, res) => {
     }
 });
 
+// Route to create a new notice
 router.post('/', ensureAuthenticated, async (req, res) => {
     const { title, description, category_id} = req.body;
     
-    // Check if categoryId and valueId are provided
+    // Check if all required fields are provided
     if (!title || !description || !category_id) {
         return res.status(400).json({ error: 'All values are required.' });
     }
 
     try {
-        // Create the notice by using categoryId and valueId directly
+        // Insert the new notice into the database
         const noticeResult = await pool.query(
             `INSERT INTO notices (title, description, category_id) 
              VALUES ($1, $2, $3) RETURNING *`,
             [title, description, category_id]
         );
 
-        // Return the created notice, including category and value names
         const createdNotice = noticeResult.rows[0];
 
-        // Fetch category and value names for the notice
+        // Fetch the category name for the created notice
         const categoryResult = await pool.query(
             'SELECT name FROM categories WHERE id = $1', 
             [category_id]
         );
 
+        // Attach category name to the created notice
         createdNotice.categoryName = categoryResult.rows[0]?.name;
 
         res.status(201).json(createdNotice);
@@ -67,17 +71,18 @@ router.post('/', ensureAuthenticated, async (req, res) => {
     }
 });
 
+// Route to update an existing notice by its ID
 router.put('/:id', ensureAuthenticated, async (req, res) => {
     const { id } = req.params;
     const { title, description, category_id } = req.body;
 
-    // Validate request data
+    // Validate that all fields are provided
     if (!title || !description || !category_id) {
         return res.status(400).json({ error: 'All values are required.' });
     }
 
     try {
-        // Update notice
+        // Update the notice with the given ID in the database
         const result = await pool.query(
             `UPDATE notices
              SET title = $1, description = $2, category_id = $3
@@ -96,9 +101,11 @@ router.put('/:id', ensureAuthenticated, async (req, res) => {
     }
 });
 
+// Route to delete a notice by its ID
 router.delete('/:id', ensureAuthenticated, async (req, res) => {
     const { id } = req.params;
     try {
+        // Delete the notice with the specified ID
         const result = await pool.query(
             'DELETE FROM notices WHERE id = $1 RETURNING *',
             [id]
@@ -113,9 +120,11 @@ router.delete('/:id', ensureAuthenticated, async (req, res) => {
     }
 });
 
+// Route to fetch a single notice by its ID
 router.get('/:id', async (req, res) => {
     const { id } = req.params;
     try {
+        // Fetch notice details along with the category name
         const result = await pool.query(
             `SELECT n.id, n.title, n.description,
                     c.name AS category_name
@@ -135,8 +144,10 @@ router.get('/:id', async (req, res) => {
     }
 });
 
+// Route to fetch the 5 most recent notices
 router.get('/', async(req, res) => {
     try {
+        // Select the latest 5 notices, ordered by creation date
         const result = await pool.query(`
             SELECT n.*, c.name AS category_name
             FROM notices n
@@ -151,17 +162,19 @@ router.get('/', async(req, res) => {
     }
 });
 
+// Route to fetch notices by category
 router.get('/categories/:categoryId', async (req, res) => {
     const { categoryId } = req.params;
     
     try {
+        // Fetch notices filtered by category
         const result = await pool.query(
             'SELECT * FROM notices WHERE category_id = $1', [categoryId]
         );
         const notices = result.rows;
 
         if (notices.length === 0) {
-            return res.json([]);
+            return res.json([]); // Return an empty array if no notices are found
         }
         res.json(notices); // Send back the filtered notices
     } catch (err) {

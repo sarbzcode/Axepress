@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const pool = require('../db');
-const ensureAuthenticated = require('./auth');
+const pool = require('../db'); // PostgreSQL connection pool
+const ensureAuthenticated = require('./auth'); // Middleware to check authentication
 
-// GET all events with filtering by category
+// Route: GET /all
+// Fetch all events, with optional filtering by category ID
 router.get('/all', async (req, res) => {
     try {
         const {categoryId} = req.query;
@@ -16,7 +17,7 @@ router.get('/all', async (req, res) => {
         
         const params = [];
         let whereAdded = false;
-        
+        // Add WHERE clause if category filter is provided        
         if (categoryId) {
             query += ' WHERE e.category_id = $1';
             params.push(categoryId);
@@ -33,26 +34,27 @@ router.get('/all', async (req, res) => {
     }
 });
 
+// Route: POST /
+// Create a new event
 router.post('/', async (req, res) => {
     const { title, description, place, date, time, category_id} = req.body;
     
-    // Check if categoryId and valueId are provided
+    // Validate input
     if (!title || !description || !place || !date || !time || !category_id) {
         return res.status(400).json({ error: 'All values are required.' });
     }
 
     try {
-        // Create the event by using categoryId and valueId directly
+        // Insert the event into the database
         const eventResult = await pool.query(
             `INSERT INTO events (title, description, place, date, time, category_id) 
              VALUES ($1, $2, $3, $4, $5, $6) RETURNING *`,
             [title, description, place, date, time, category_id]
         );
 
-        // Return the created event, including category and value names
         const createdEvent = eventResult.rows[0];
 
-        // Fetch category and value names for the event
+        // Fetch the category name for the event
         const categoryResult = await pool.query(
             'SELECT name FROM categories WHERE id = $1', 
             [category_id]
@@ -67,11 +69,13 @@ router.post('/', async (req, res) => {
     }
 });
 
+// Route: PUT /:id
+// Update an existing event (authentication required)
 router.put('/:id', ensureAuthenticated, async (req, res) => {
     const { id } = req.params;
     const { title, description, place, date, time, category_id } = req.body;
 
-    // Validate request data
+    // Validate input
     if (!title || !description || !place || !date || !time || !category_id) {
         return res.status(400).json({ error: 'All values are required.' });
     }
@@ -96,7 +100,8 @@ router.put('/:id', ensureAuthenticated, async (req, res) => {
     }
 });
 
-
+// Route: DELETE /:id
+// Delete an event by ID
 router.delete('/:id', async (req, res) => {
     const { id } = req.params;
     try {
@@ -114,6 +119,8 @@ router.delete('/:id', async (req, res) => {
     }
 });
 
+// Route: GET /:id
+// Fetch a single event by ID
 router.get('/:id', async (req, res) => {
     const { id } = req.params;
     try {
@@ -136,6 +143,8 @@ router.get('/:id', async (req, res) => {
     }
 });
 
+// Route: GET /
+// Fetch the 5 most recent events
 router.get('/', async(req, res) => {
     try {
         const result = await pool.query(`
@@ -152,6 +161,8 @@ router.get('/', async(req, res) => {
     }
 });
 
+// Route: GET /categories/:categoryId
+// Fetch all events under a specific category
 router.get('/categories/:categoryId', async (req, res) => {
     const { categoryId } = req.params;
     
@@ -164,11 +175,11 @@ router.get('/categories/:categoryId', async (req, res) => {
         if (event.length === 0) {
             return res.json([]);
         }
-        res.json(event); // Send back the filtered events
+        res.json(event); // Return filtered events
     } catch (err) {
         console.error(err);
         res.status(500).json({ message: "Error fetching events" });
     }
 });
 
-module.exports = router;
+module.exports = router; // Export router for use in main app
