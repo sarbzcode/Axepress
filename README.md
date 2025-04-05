@@ -9,10 +9,7 @@ Axepress is a centralized digital noticeboard designed for the Acadia University
 - [Technologies Used](#technologies-used)
 - [Installation Instructions](#installation-instructions)
 - [User Documentation](#user-documentation)
-- [API Documentation](#api-documentation)
-- [Testing](#testing)
 - [Contributors](#contributors)
-- [License](#license)
 
 ---
 
@@ -40,7 +37,7 @@ Axepress is a digital noticeboard and event manager designed to replace physical
 
 ## **Installation Instructions**
 
-To set up the Axepress application locally, follow the steps below:
+To set up Axepress application locally, follow the steps below:
 
 ### **Prerequisites**
 Ensure you have the following installed:
@@ -53,19 +50,16 @@ Ensure you have the following installed:
    ```bash
    git clone https://github.com/sarbzcode/Axepress.git
    cd Axepress
-   ```bash
 
 2. **Install frontend dependencies:** Navigate to the frontend directory and install dependencies:
     ```bash
     cd frontend
     npm install
-    ```bash
 
 3. **Install backend dependencies:** Navigate to the backend directory and install dependencies:
     ```bash
     cd backend
     npm install
-    ```bash
 
 4. **Set up PostgreSQL:**
 - Create a PostgreSQL database.
@@ -74,12 +68,10 @@ Ensure you have the following installed:
 5. **Start the frontend:** In the frontend directory, run the following command to start the development server:
     ```bash
     npm run dev
-    ```bash
 
 6. **Start the backend:** In the backend directory, run the following command to start the server:
     ```bash
     node server.js
-    ```bash
 
 7. **Access the application:** Open your browser and go to http://localhost:5000 to access the application.
 
