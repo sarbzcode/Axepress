@@ -1,0 +1,255 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    transition: all 0.2s ease-in-out;
+}
+
+.admin-dashboard {
+    display: flex;
+    min-height: 100vh;
+    background: #0f1116;
+    color: #f3f4f6;
+    padding: 1.5rem;
+    gap: 1.5rem;
+}
+
+.admin-sidebar {
+    flex: 0.28;
+    background: #161a20;
+    border: 1px solid #22252b;
+    border-radius: 10px;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-top {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.sidebar-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.sidebar-subtitle {
+    margin: 0.35rem 0 0;
+    font-size: 1rem;
+    color: #9ca3af;
+}
+
+.sidebar-summary {
+    margin: 0.75rem 0 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #cbd5f5;
+}
+
+.sidebar-tasks {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.task-button {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.85rem 1rem;
+    background: #1b1f27;
+    border: 1px solid #2a2e35;
+    border-radius: 8px;
+    color: inherit;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: left;
+}
+
+.task-button:hover,
+.task-button:focus {
+    background: #1e293b;
+    border-color: #3b4252;
+    outline: none;
+}
+
+.task-button.active {
+    background: rgba(59, 130, 246, 0.15);
+    border-color: #2563eb;
+    color: #f8fafc;
+    box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.35);
+}
+
+.task-icon {
+    font-size: 1.15rem;
+}
+
+.logout-button {
+    margin-top: auto;
+    padding: 0.85rem 1rem;
+    background: transparent;
+    border: 1px solid #374151;
+    border-radius: 8px;
+    color: #e5e7eb;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.logout-button:hover,
+.logout-button:focus {
+    background: #1e293b;
+    border-color: #4b5563;
+    color: #f9fafb;
+    outline: none;
+}
+
+.admin-main {
+    flex: 0.72;
+    background: #1b1f27;
+    border: 1px solid #2a2e35;
+    border-radius: 10px;
+    padding: 1.5rem;
+    display: flex;
+}
+
+.panel-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.panel-header h2 {
+    margin: 0;
+    font-size: 1.35rem;
+    font-weight: 600;
+}
+
+.panel-header p {
+    margin: 0.5rem 0 0;
+    font-size: 1rem;
+    color: #d1d5db;
+    line-height: 1.6;
+}
+
+.panel-placeholder {
+    flex: 1;
+    min-height: 260px;
+    border: 1px dashed #2f3644;
+    border-radius: 12px;
+    background: #191d25;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    color: #9ca3af;
+    text-align: center;
+}
+
+.panel-placeholder span {
+    max-width: 320px;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.admin-main .create-notice-form {
+    background: #161a20;
+    border: 1px solid #2a2e35;
+    border-radius: 10px;
+    box-shadow: none;
+    width: 100%;
+    margin: 0;
+    padding: 1.75rem;
+    align-items: stretch;
+}
+
+.admin-main .create-notice-form .form-header h2,
+.admin-main .create-notice-form label {
+    color: #f9fafb;
+}
+
+.admin-main .create-notice-form .form-header h2 {
+    text-align: left;
+}
+
+.admin-main .create-notice-form label {
+    text-align: left;
+}
+
+.admin-main .create-notice-form input,
+.admin-main .create-notice-form textarea,
+.admin-main .create-notice-form select {
+    background: #111827;
+    color: #f3f4f6;
+    border: 1px solid #303641;
+}
+
+.admin-main .create-notice-form input:focus,
+.admin-main .create-notice-form textarea:focus,
+.admin-main .create-notice-form select:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.35);
+}
+
+.admin-main .create-notice-form .submit-button {
+    background: #2563eb;
+    border-radius: 8px;
+    max-width: 260px;
+}
+
+.admin-main .create-notice-form .submit-button:hover {
+    background: #1d4ed8;
+}
+
+@media (max-width: 1024px) {
+    .admin-dashboard {
+        flex-direction: column;
+    }
+
+    .admin-sidebar,
+    .admin-main {
+        flex: unset;
+        width: 100%;
+    }
+
+    .admin-main {
+        min-height: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .admin-dashboard {
+        padding: 1.25rem;
+        gap: 1.25rem;
+    }
+
+    .admin-sidebar {
+        padding: 1.15rem;
+    }
+
+    .admin-main {
+        padding: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .admin-dashboard {
+        padding: 1rem;
+    }
+
+    .task-button {
+        font-size: 0.95rem;
+        padding: 0.75rem 0.9rem;
+    }
+
+    .logout-button {
+        width: 100%;
+    }
+
+    .panel-header h2 {
+        font-size: 1.2rem;
+    }
+}

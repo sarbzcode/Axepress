@@ -1,0 +1,38 @@
+/* Ensures proper layout and background for the notice-detail component */
+.notice-detail {
+    background-color: #F5F6FA; /* Light Gray background */
+    color: #2C3E50; /* Navy Blue text for contrast */
+    padding: 2rem 1rem;
+    margin: 2rem auto;
+    max-width: 800px; /* Set max-width to make it centered */
+    border-radius: 8px; /* Soft rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    overflow: hidden; /* Ensure content does not overflow */
+}
+
+/* Heading styles */
+.notice-detail h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #8A1538; /* Crimson Red for title */
+    margin-bottom: 1rem;
+}
+
+/* Description styles */
+.notice-detail p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    color: #4A4A4A; /* Slate Gray for description text */
+}
+
+/* Loading and error messages */
+.notice-detail p.loading {
+    font-size: 1.2rem;
+    color: #27AE60; /* Fresh Green for loading state */
+}
+
+.notice-detail p.error {
+    font-size: 1.2rem;
+    color: #E74C3C; /* Red color for error or "Not Found" messages */
+}

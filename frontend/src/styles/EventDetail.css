@@ -1,0 +1,78 @@
+/* Ensures proper layout and background for the notice-detail component */
+.event-detail {
+    background-color: #F5F6FA; /* Light Gray background */
+    color: #2C3E50; /* Navy Blue text for contrast */
+    padding: 2rem 1rem;
+    margin: 2rem auto;
+    max-width: 800px; /* Set max-width to make it centered */
+    border-radius: 8px; /* Soft rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    overflow: hidden; /* Ensure content does not overflow */
+}
+
+/* Heading styles */
+.event-detail h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #8A1538; /* Crimson Red for title */
+    margin-bottom: 1rem;
+}
+
+/* Description styles */
+.event-detail p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    color: #4A4A4A; /* Slate Gray for description text */
+}
+
+/* Loading and error messages */
+.event-detail p.loading {
+    font-size: 1.2rem;
+    color: #27AE60; /* Fresh Green for loading state */
+}
+
+.event-detail p.error {
+    font-size: 1.2rem;
+    color: #E74C3C; /* Red color for error or "Not Found" messages */
+}
+
+.add-to-calendar-btn {
+    background-color: #27AE60; /* Fresh Green */
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin: 0 auto;
+}
+
+.add-to-calendar-btn:hover {
+    background-color: #2E8B57; /* Darker Green */
+}
+
+/* Calendar options buttons */
+.calendar-options {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    justify-content: center;
+}
+
+.calendar-btn {
+    background-color: #2C3E50; /* Navy Blue */
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;    
+    transition: background-color 0.3s ease;
+}
+
+.calendar-btn:hover {
+    background-color: #8A1538; /* Crimson Red */
+}

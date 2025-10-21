@@ -1,0 +1,102 @@
+/* Overall page styling */
+.events-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    width: 100%;
+    font-family: Arial, sans-serif;
+    background-color: #F5F6FA; /* Light Gray background for the page */
+  }
+  
+  /* Heading */
+  .events-heading {
+    font-size: 2rem;
+    color: #2C3E50; /* Navy Blue */
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  /* Dropdown styling */
+  .category-dropdown {
+    padding: 10px;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    background-color: #F5F6FA;
+    border: 1px solid #D4AF37; /* Soft Gold border */
+    border-radius: 5px;
+    width: 100%;
+    max-width: 300px;
+    display: block;
+    margin: 0 auto;
+    transition: border-color 0.3s ease;
+  }
+  
+  .category-dropdown:focus {
+    outline: none;
+    border-color: #8A1538; /* Crimson Red on focus */
+  }
+  
+  /* List of notices */
+  .events-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .event-item {
+    background-color: #FFFFFF; /* White background for each notice item */
+    padding: 20px;
+    height: 200px;
+    width: 100%;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    justify-content: space-between;
+    overflow: hidden;
+  }
+  
+  .event-title {
+    font-size: 1.5rem;
+    color: #2C3E50; /* Navy Blue */
+    margin-bottom: 10px;
+  }
+  
+  .event-description {
+    font-size: 1rem;
+    color: #4A4A4A; /* Slate Gray */
+    margin-bottom: 15px;
+    height: 90px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.5rem;
+    margin-bottom: 15px;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    line-clamp: 4;
+  }
+  
+  /* Link styling */
+  .event-link {
+    color: #D4AF37; /* Soft Gold */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  .event-link:hover {
+    color: #8A1538; /* Crimson Red hover */
+  }
+  
+  /* Message when no notices are found */
+  .no-events-message {
+    font-size: 1.1rem;
+    color: #8A1538; /* Crimson Red */
+    text-align: center;
+    margin-top: 20px;
+  }
+  
